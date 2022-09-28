@@ -100,7 +100,6 @@ export const User = () => {
           type="text"
           placeholder="Nick Name"
           name="닉네임"
-          value="사람"
           {...register("username", { required: "닉네임은 필수입니다." })}
         />
 

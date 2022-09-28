@@ -6,6 +6,16 @@ const Wrap = styled.div`
   background-color: gray;
 `;
 
-export const UserList = () => {
-  return <Wrap></Wrap>;
+export const UserList = ({ userDb }) => {
+  console.log(userDb);
+  return (
+    <Wrap>
+      {userDb.map((user) => (
+        <>
+          <div>{user.username}</div>
+          <div>{user.cha}</div>
+        </>
+      ))}
+    </Wrap>
+  );
 };

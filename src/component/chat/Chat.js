@@ -1,4 +1,5 @@
-import { useEffect } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import styled from "styled-components";
 import { ChatWrap } from "./ChatWrap";
 import { UserList } from "./UserList";
@@ -18,12 +19,28 @@ const Container = styled.div`
 `;
 
 export const Chat = () => {
-  useEffect(()=>{},[])
+  const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(async () => {
+    const userDb = () => {
+      axios("/chat")
+        .then(function (res) {
+          setUser(res.data);
+          setLoading(false);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    };
+    userDb();
+  }, []);
   return (
     <Section>
       <Container>
         <ChatWrap />
-        <UserList />
+
+        {loading ? "null" : <UserList userDb={user} />}
       </Container>
     </Section>
   );
