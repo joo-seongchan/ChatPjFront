@@ -24,7 +24,8 @@ export const Chat = () => {
 
   useEffect(async () => {
     const userDb = () => {
-      axios("/chat")
+      axios
+        .get("/chat")
         .then(function (res) {
           setUser(res.data);
           setLoading(false);
@@ -35,12 +36,12 @@ export const Chat = () => {
     };
     userDb();
   }, []);
+
   return (
     <Section>
       <Container>
         <ChatWrap />
-
-        {loading ? "null" : <UserList userDb={user} />}
+        {loading ? <UserList userDb={user} /> : ""}
       </Container>
     </Section>
   );

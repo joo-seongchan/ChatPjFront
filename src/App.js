@@ -1,4 +1,4 @@
-import { HashRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { Chat } from "./component/chat/Chat";
 import { Home } from "./component/home/Home";
 import { GlobalStyle } from "./styles/GlobalStyle";

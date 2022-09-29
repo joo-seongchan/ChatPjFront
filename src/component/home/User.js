@@ -75,6 +75,7 @@ export const User = () => {
     register,
     formState: { errors, isValid },
   } = useForm({ mode: `onChange` });
+
   const [label, setLabel] = useState(1);
   const nav = useNavigate();
   const submit = (data) => {
