@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { chatApi } from "../../api";
 
 const Wrap = styled.div``;
 const Title = styled.div`
@@ -78,17 +79,13 @@ export const User = () => {
 
   const [label, setLabel] = useState(1);
   const nav = useNavigate();
-  const submit = (data) => {
-    console.log(data);
-    axios
-      .post(`/`, data)
-      .then((Response) => {
-        console.log(Response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-    nav(`/chat`);
+  const submit = async (data) => {
+    try {
+      console.log(await chatApi.userGet("user"));
+    } catch (error) {
+      console.log(error);
+    }
+    // nav(`/chat`);
   };
 
   return (

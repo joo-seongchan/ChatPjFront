@@ -25,7 +25,7 @@ export const Chat = () => {
   useEffect(async () => {
     const userDb = () => {
       axios
-        .get("/chat")
+        .get("10.10.10.5000:/chat")
         .then(function (res) {
           setUser(res.data);
           setLoading(false);
